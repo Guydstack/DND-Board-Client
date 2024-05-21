@@ -10,7 +10,7 @@ export default function Logo(props) {
                 _hover={{ textDecoration: "none" }}
                 clipPath= "circle(50% at 50% 50%)"
                 backgroundColor={"transparent"}
-                backgroundImage= "url('/public/logo transparent.png')"
+                backgroundImage= "url('https://res.cloudinary.com/doxiillcn/image/upload/v1716324091/bhzuzydgfawneqgkzh1g.png')"
                 backgroundPosition= "center"
                 backgroundRepeat= "no-repeat"
                 backgroundSize= "cover"
