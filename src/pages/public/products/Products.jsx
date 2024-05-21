@@ -62,7 +62,7 @@ function Products() {
       <Box position="relative" width="100%">
         <Box
           as="video"
-          src="/public/DND_Balance_Board_Video.mp4"
+          src="https://res.cloudinary.com/doxiillcn/video/upload/v1716323677/dpmmgyewerkoqfy1bjbj.mp4"
           alt="home page video"
           objectFit="cover"
           width="100%"
