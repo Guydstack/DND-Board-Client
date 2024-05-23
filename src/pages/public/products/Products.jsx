@@ -120,7 +120,7 @@ function Products() {
               )}
                 <Flex justifyContent={"center"}>
                   <IconButton
-                    top={"50px"}
+                    top={isMobile ? "20px" : "50px"}
                     zIndex={89}
                     backgroundColor={"blackAlpha.100"}
                     borderRadius={"50%"}
@@ -226,7 +226,7 @@ function Products() {
               mt={10}
           >
           <Box
-            bgImage="https://res.cloudinary.com/doxiillcn/image/upload/v1714113582/stzlzfdqm1fef6na1cbo.jpg"
+            bgImage={isMobile ? "none" : "https://res.cloudinary.com/doxiillcn/image/upload/v1714113582/stzlzfdqm1fef6na1cbo.jpg"}
             bgPosition={"bottom"}
             bgSize={isMobile ? 'cover' : 'cover'}
             bgAttachment='fixed'
