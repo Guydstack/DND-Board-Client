@@ -9,6 +9,7 @@ const Prallex = () => {
       h='550px'
       pos='relative'
       overflow='hidden'
+      display={isMobile && "none"} 
 
     >
       <Box
