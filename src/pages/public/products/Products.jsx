@@ -182,7 +182,7 @@ function Products() {
               left="0"
               bottom="50%"
               sx={{
-                display: { base: "none", sm: "none", md: "inline", lg: "inline" },
+                display:"inline",
                 background: "rgba(255, 255, 255, 0)",
                 "&:hover": {
                   background: "rgba(255, 255, 255, 0)",
@@ -201,7 +201,7 @@ function Products() {
               right="-25px"
               bottom="50%"
               sx={{
-                display: { base: "none", sm: "none", md: "inline", lg: "inline" },
+                display:"inline",
                 background: "rgba(255, 255, 255, 0)",
                 "&:hover": {
                   background: "rgba(255, 255, 255, 0)",
