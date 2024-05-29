@@ -27,9 +27,6 @@ function CheckOut() {
     const { cartItems, setCartItems, totalPrice, paypalOrder, userData, setUserData } = useContext(CartContext);
     const {user} = useContext(AuthContext);
 
-    
-    
-    // const [payment, setPayment] = useState(null);
     const [errorInTranstion, setErrorInTranstion] = useState(null);
   
     const [total, setTotal] = useState(6.00);
@@ -50,9 +47,6 @@ function CheckOut() {
   
     const placeOrder = async () => {
       try {
-        // const {data : payment_status} = await axios.post('http://localhost:4000/payments/pay',{credit_number:paymentsValues.credit});
-  
-        // setPayment(payment_status);
   
         try {
           const { data: order_status } = await axios.post(
@@ -167,10 +161,6 @@ function CheckOut() {
           };
         }),
       };
-        console.log(cartItems);
-        console.log(userOrderData);
-        console.log(order);
-        console.log(data);
   
       try {
         const response = await axios({
@@ -182,7 +172,6 @@ function CheckOut() {
           data: userOrderData,
           withCredentials: true
         });
-        console.log(response.data);
         return response.data;
       } catch (error) {
         console.error(error);
