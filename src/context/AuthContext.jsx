@@ -37,8 +37,6 @@ function AuthProvider({ children }) {
     }).then(() => console.log('success'))
    }
   
-  
-  // console.log(user);
 
   async function handleUnload(e){
     e.preventDefault();
