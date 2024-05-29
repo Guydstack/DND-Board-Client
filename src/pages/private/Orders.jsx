@@ -21,15 +21,13 @@ const Orders = () => {
     // Function to format date
     const formatDate = (dateString) => {
       const date = new Date(dateString);
-      return date.toLocaleDateString(); // Adjust format as needed
+      return date.toLocaleDateString(); 
     };
-
-    console.log(user);
 
 
       // Function to map status number to string
-  const getStatusString = (statusNumber) => {
-    switch (statusNumber) {
+      const getStatusString = (statusNumber) => {
+      switch (statusNumber) {
       case 1:
         return "New";
       case 2:
@@ -43,12 +41,6 @@ const Orders = () => {
     }
   };
 
-  // Assuming orders data is passed as props or fetched from an API
-  // const orders = [
-  //   { id: 1, date: '2023-05-22', total: 29.99, status: 'Delivered' },
-  //   { id: 2, date: '2023-05-18', total: 49.99, status: 'Shipped' },
-  //   { id: 3, date: '2023-05-15', total: 19.99, status: 'Processing' },
-  // ];
 
   return (
     <Box minH="65vh" maxW="1000px" mx="auto" py={110} px={4}>
@@ -90,8 +82,6 @@ export const getUserOrders = async () => {
     return error.response.data.error;
   }
 };
-
-
 
 
 export default Orders;
