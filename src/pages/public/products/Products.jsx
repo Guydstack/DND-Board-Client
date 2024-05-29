@@ -10,9 +10,6 @@ import Logo from "../../../components/common/Logo";
 import { MdExpandMore, MdExpandLess } from 'react-icons/md';
 
 
-
-// import { CartContext } from "../../../context/CartContext";
-
 function Products() {
   const scrollRef = useRef(null);
   const proModelsRef = useRef(null);
@@ -20,22 +17,6 @@ function Products() {
 
   const products = useLoaderData();
   const {searchTerm, FilterdProducts, setFilterdProducts, setAllProducts, colorM} = useContext(AuthContext);
-  // const [FilterdProducts, setFilterdProducts] = useState(products);
-
-
-    //implement search input
-    // useEffect(() => {
-    //   const searchResults = products.filter(
-    //     (product) =>
-    //       product.product_description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    //       product.product_name.toLowerCase().includes(searchTerm.toLowerCase())
-    //   );
-  
-    //   setFilterdProducts(searchResults);
-    // }, [searchTerm]);
-
-
-  // const { addToCart } = useContext(CartContext);
 
 
   useEffect(() => {
@@ -91,14 +72,6 @@ function Products() {
           <Heading as="h2" size="xl" mb={5} mt={5} textAlign={"center"}>
           באלאנס בורד ללא תחרות
           </Heading>
-          {/* <Text my={5} textAlign={"center"} dir="rtl" lang="he">
-              הבאלאנס בורד שלנו בעל שייפ ייחודי המאפשר הנאה מרבית עם עיצוב מלא בסטייל!
-              הוא מבטא את כל הגישה הסביבתית והמחויבות לאיכות גבוהה. 
-              הבורד עשוי מלוח בירץ׳ אירופאי באיכות הגבוהה ביותר ומצופה בפורניר אלון למראה אלגנטי ומיוחד.
-              כל בורד מקבל חריטה של גל העשוי גם הוא מפורניר אגוז אמריקאי, המודבק בטכניקת אינטרסיה. כל בורד בעבודת יד שונה מקודמו וייחודי בפני עצמו, ניתן להזמין חריטה/אינטרסיה בהתאמה אישית. 
-              הבורדים שלנו לא רק מהנים, אלה משמשים כפריט עיצובי ייחודי המושך את העין ויוצר אווירה מושלמת בכל חלל. השילוב של פורניר נותן תחושה של מוצר חיי בעל אופי ואלגנטיות. ואת הטאצ‘ הסופי מעניקים לו באמצעות שמן ווקס אקולוגי המדגיש את טקסטורת העץ הטבעית.
-              ​הרולר מיוצר אצלנו בעבודת חריטה ייחודית, ועשוי משכבות של עץ אורן ממוחזר העטוף בשעם ומאפשר תנועה חלקה ומגע מושלם בין הבורד למשטח. הרולר נשאר יציב, עמיד בפני שחיקה, ושומר על צורתו לנצח.
-          </Text> */}
 
           <Box>
             <Text dir='rtl' textAlign={"center"}>
@@ -269,17 +242,6 @@ function Products() {
                 </Card>
             </Flex>
           </Box>
-
-
-        {/* <Flex flexWrap="wrap" my={5} justifyContent={{ base: "center", md: "space-between" }}>
-          {products?.map((product) => (
-         <ProductCard 
-         key={product._id}
-         product={product}
-        //  addToCart={addToCart}
-         />
-          ))}
-        </Flex> */}
 
         <Heading as="h1" size="xl" mb={5} mt={5} textAlign={"center"}>
         באלאנס בורד DND
