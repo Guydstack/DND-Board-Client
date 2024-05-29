@@ -68,9 +68,7 @@ function User() {
     });
 
 
-    // Function to filter user data based on user's ID
-    
-    // const filteredUser = userDe?.filter(u => u.id === user?.uid || user?.providerData?.[0]?.uid);
+    // Function to filter user data based on user's ID    
     const filteredUser = userDe.length === 0 ? googleUserData : userDe.filter(u => u.id === user?.uid);
 
 
@@ -87,15 +85,6 @@ function User() {
             }
         }, [userDe]);
         
-
-    // console.log(user);
-    // console.log(userUpdate);
-    // console.log(googleUserData);
-    // console.log(userDe);
-    // console.log(filteredUser);
-
-
-
 
     // Set User Details from Google
     useEffect(() => {
@@ -192,9 +181,6 @@ function User() {
     // Show a Spinner while Data Louding
     if (loading || !user) {
         return (
-            // <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-            //     <CircularProgress isIndeterminate color="blue.300" />
-            // </Box>
             <CustomSpinner />
         );
     };
