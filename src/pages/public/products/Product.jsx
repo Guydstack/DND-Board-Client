@@ -46,9 +46,6 @@ function Product() {
 
   const [qty, setQty] = useState(1);
 
-  // useEffect(() => {
-  //   setTotalProducts(qty)
-  // },[qty, setQty]);
 
   const increment = () => {
     setQty(qty + 1);
@@ -66,8 +63,6 @@ function Product() {
         const { data } = await axios.get(
           `https://dnd-board.onrender.com/products/managers/by_id/${id}`
         );
-
-        console.log(data);
 
         setProduct(data.product);
 
@@ -217,9 +212,7 @@ function Product() {
                   ${product.product_price}
                 </Text>
     
-                {/* <Button onClick={increment}>+</Button>
-                <Text> {qty} </Text>
-                <Button onClick={decrement}>-</Button> */}
+
                 <Flex justifyContent={"center"}>
                   <Button
                     variant="solid" 
@@ -232,12 +225,6 @@ function Product() {
                   >
                     Add to Cart
                   </Button>
-
-                  {/* <Link to={`/#${id}`}>
-                    <Button>
-                    Go Back
-                    </Button>
-                  </Link> */}
                 </Flex>
 
                 {product?.categories[0].category_name === "Balance Board" ? (
