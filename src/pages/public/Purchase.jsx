@@ -55,8 +55,6 @@ const PurchasePage = () => {
 
   const handleSubmit = () => {
     setIsSubmitting(true);
-    // Perform any additional validation if required
-    // For simplicity, let's assume all fields are required
     if (
       userData.name &&
       userData.email &&
