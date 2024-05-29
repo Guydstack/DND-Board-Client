@@ -19,7 +19,6 @@ const Products = lazy(() => import('./pages/public/products/Products'));
 import PurchasePage from "./pages/public/Purchase";
 const Product = lazy(() => import('./pages/public/products/Product'));
 const Orders = lazy(() => import('./pages/private/Orders'));
-// const Purchase = lazy(() => import('./pages/public/Purchase'));
 const Login = lazy(() => import('./pages/public/Login'));
 const User = lazy(() => import('./pages/private/User'));
 import CheckOut from "./pages/public/CheckOut";
@@ -54,16 +53,7 @@ function App() {
 
   return (
     <>
-      <Suspense 
-      //   fallback={<Spinner
-      //   thickness='4px'
-      //   speed='0.65s'
-      //   emptyColor='gray.200'
-      //   color='blue.500'
-      //   size='xl'
-      // />}
-      fallback={<CustomSpinner/>}
-    >
+      <Suspense fallback={<CustomSpinner/>} >
         <RouterProvider router={router} />
       </Suspense>
     </>
