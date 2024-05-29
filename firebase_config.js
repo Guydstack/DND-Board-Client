@@ -5,17 +5,6 @@ import { getDatabase } from 'firebase/database';
 import { getFirestore } from 'firebase/firestore';
 
 
-
-// const firebaseConfig = {
-//   apiKey: "AIzaSyA1FiCCpeA_LDoOrEjXmQUH6Jyt_tEYdcM",
-//   authDomain: "e-commrce-test-878bc.firebaseapp.com",
-//   projectId: "e-commrce-test-878bc",
-//   storageBucket: "e-commrce-test-878bc.appspot.com",
-//   messagingSenderId: "1046683075070",
-//   appId: "1:1046683075070:web:1671f4935a0ce2a2a300af",
-//   measurementId: "G-TW1VXFLE1Q"
-// };
-
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
