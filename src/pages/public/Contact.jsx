@@ -26,7 +26,7 @@ function Contact() {
   const handleSubmit = async (values, actions) => {
     try {
       const url = import.meta.env.VITE_CONTACT_ENDPOINT;
-      // Make a POST request to your backend API endpoint
+      // Make a POST request to the backend API endpoint
       const response = await axios.post(url, values);
   
       // Check if the request was successful
@@ -34,7 +34,6 @@ function Contact() {
         console.log('Form data sent to MongoDB successfully:', response.data);
         actions.resetForm();
         toast.success(`Thank you, ${values.name}! Your message has been successfully sent. We'll get back to you shortly.`);
-        // You can perform additional actions here if needed
       } else {
         console.error('Failed to send form data to MongoDB:', response.data);
         toast.error(`Oops, something went wrong while sending your message, ${values.name}. Please try again later.`);
@@ -144,21 +143,3 @@ function Contact() {
 }
 
 export default Contact;
-
-
-{/* <Flex direction="row" alignItems="center">
-<Text as="h3" size="sm" mb={1} textAlign={"center"} >
-  0503504937
-</Text>
-<Heading as="h3" size="sm" mb={2} paddingLeft={2} textAlign={"center"} dir="rtl">
-  טלפון:
-</Heading>
-</Flex>
-<Flex direction="row" alignItems="center">
-<Text as="h3" size="sm" mb={1} textAlign={"center"} dir="rtl">
- dahan.nature.design@gmail.com
-</Text>
-<Heading as="h3" size="sm" mb={1} mr={2} paddingLeft={2} textAlign={"center"} dir="rtl">
-  מייל:
-</Heading>
-</Flex> */}
