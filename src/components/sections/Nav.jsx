@@ -63,6 +63,11 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
 
 const MenuLinks = ({ isOpen }) => {
   const { user } = useContext(AuthContext);
+  const [manuLink,setManuLink] = useState(1);
+
+  const getBorderBottom = (linkNumber) => {
+    return manuLink === linkNumber ? "2px solid black" : "none";
+  };
 
   return (
     <Box
@@ -77,10 +82,10 @@ const MenuLinks = ({ isOpen }) => {
         direction={["column", "column", "row", "row"]}
         pt={[4, 4, 0, 0]}
       >
-        <MenuItem to="/">Home</MenuItem>
-        <MenuItem to="/about">About</MenuItem>
-        <MenuItem to="/contact">Contact </MenuItem>
-        {user && <MenuItem to="/Orders">Orders </MenuItem>}
+        <MenuItem to="/" _hover={{color: "teal"}} onClick={() => setManuLink(1)} borderBottom={getBorderBottom(1)}>Home</MenuItem>
+        <MenuItem to="/about" _hover={{color: "teal"}} onClick={() => setManuLink(2)} borderBottom={getBorderBottom(2)}>About</MenuItem>
+        <MenuItem to="/contact" _hover={{color: "teal"}} onClick={() => setManuLink(3)} borderBottom={getBorderBottom(3)}>Contact</MenuItem>
+        {user && <MenuItem to="/Orders" _hover={{color: "teal"}} onClick={() => setManuLink(4)} borderBottom={getBorderBottom(4)}>Orders</MenuItem>}
 
       </Stack>
     </Box>
