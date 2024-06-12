@@ -63,7 +63,7 @@ const MenuItem = ({ children, isLast, to = "/", ...rest }) => {
 
 const MenuLinks = ({ isOpen }) => {
   const { user } = useContext(AuthContext);
-  const [manuLink,setManuLink] = useState(1);
+  const { manuLink, setManuLink } = useContext(AuthContext);
 
   const getBorderBottom = (linkNumber) => {
     return manuLink === linkNumber ? "2px solid black" : "none";
@@ -94,7 +94,7 @@ const MenuLinks = ({ isOpen }) => {
 
 const NavBarContainer = ({ children, ...props }) => {
   const navigate = useNavigate();
-  const { user, logOut, setOnLoad } = useContext(AuthContext);
+  const { user, logOut, setOnLoad, setManuLink } = useContext(AuthContext);
   const handleLogout = () => {
     navigate('/'); // Redirect to the home page
     logOut();
@@ -120,7 +120,7 @@ const NavBarContainer = ({ children, ...props }) => {
       {...props}
     >
       <Box position="absolute" left={5} top={5}>
-        <Link to={"/"}>
+        <Link to={"/"} onClick={() => setManuLink(1)}>
           <Logo />
         </Link>
       </Box> 
@@ -129,7 +129,7 @@ const NavBarContainer = ({ children, ...props }) => {
           <AiOutlineShopping color={"black"} size={25} />
         </MenuItem> */}
         <ShoopingCart/>
-        <MenuItem to={user ? "/user" : "/login"} onClick={() => setOnLoad(false)} >
+        <MenuItem to={user ? "/user" : "/login"} onClick={() => {setOnLoad(false); setManuLink(0);}} >
           <AiOutlineUser color={"black"} size={25} />
         </MenuItem>
         <SearchBar/>
