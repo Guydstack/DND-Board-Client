@@ -22,7 +22,7 @@ import {useContext} from "react"
 
 function ProductCard({ product }) {
   const navigate = useNavigate();
-  const {colorM} = useContext(AuthContext);
+  const {colorM, setManuLink} = useContext(AuthContext);
   const { addToCart } = useContext(CartContext)
 
 
@@ -36,6 +36,7 @@ function ProductCard({ product }) {
               <Image
                 onClick={() => {
                   navigate(`/product/${product._id}`);
+                  setManuLink(0);
                 }}
                 style={{ cursor: "pointer" }}
                 // maxH={"fit-content"}
@@ -59,7 +60,7 @@ function ProductCard({ product }) {
           <Divider />
           <CardFooter>
             <ButtonGroup spacing="2">
-              <Button variant="solid" colorScheme="teal" onClick={() => {navigate('/purchase'); addToCart(product);} }>
+              <Button variant="solid" colorScheme="teal" onClick={() => {navigate('/purchase'); addToCart(product); setManuLink(0);} }>
                 Buy now
               </Button>
               <Button
