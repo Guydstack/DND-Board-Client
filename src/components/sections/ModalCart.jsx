@@ -16,11 +16,14 @@ import {
   import { useContext, useState, useEffect } from "react";
   import { AiFillDelete } from "react-icons/ai";
   import { useNavigate } from "react-router-dom";
+  import { AuthContext } from "../../context/AuthContext";
+
 
   
   function ModalCart({ isOpen: propIsOpen, onClose }) {
     const { cartItems, addToCart, removeFromCart, deleteFromCart , resetCart , setTotalProducts , totalProducts, totalPrice} =
     useContext(CartContext);
+    const { setManuLink } = useContext(AuthContext);
     const navigate = useNavigate();
 
 
@@ -99,6 +102,7 @@ import {
               <Button onClick={() => {
                 onClose();
                 navigate('/purchase');
+                setManuLink(0);
                 }}>Purchase</Button>
               <Button colorScheme="teal" mr={3} onClick={resetCart}>
                 <AiFillDelete />
