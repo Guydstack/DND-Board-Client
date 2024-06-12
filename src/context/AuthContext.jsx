@@ -17,6 +17,8 @@ function AuthProvider({ children }) {
   const [FilterdProducts, setFilterdProducts] = useState([]);
   const [AllProducts, setAllProducts] = useState([]);
   const [searcOnNavOpen, setSearcOnNavOpen] = useState(false);
+  const [manuLink, setManuLink] = useState(1);
+
 
 
 
@@ -74,7 +76,8 @@ useEffect(() => {
   const value = { 
                   setIsAuth, isAuth, onLoad, setOnLoad, colorM, setToggleColorM,
                   user, setUser, logOut, googleSignIn, userDe, setUserDe, searchTerm, setSearchTerm,
-                  searcOnNavOpen, setSearcOnNavOpen, FilterdProducts, setFilterdProducts, AllProducts, setAllProducts
+                  searcOnNavOpen, setSearcOnNavOpen, FilterdProducts, setFilterdProducts, AllProducts, setAllProducts,
+                  manuLink,setManuLink,
                  };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
