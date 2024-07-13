@@ -21,7 +21,6 @@ import CustomSpinner from '../../components/common/CustomSpinner';
 const initialForm = {
   user_email: "",
   user_name: "",
-  user_password: "",
   user_phone: null,
   active: false,
 };
@@ -33,6 +32,8 @@ const Login = () => {
   const [userProfile, setUserProfile] = useState(initialForm);
   const navigate = useNavigate();
   const reference = collection(db, "users");
+  const [loading, setLoading] = useState(false); // State to track loading state
+  const [inValidUser, setInValidUser] = useState(false); // State to track invalid login
 
 
 
@@ -53,6 +54,7 @@ const Login = () => {
           name:userProfile.user_name,
           email:userProfile.user_email,
           phone:userProfile.user_phone,
+          created_at: new Date().toISOString(), // Add registration date
         });
       } catch (error) {
         console.log(error);
@@ -66,22 +68,31 @@ const Login = () => {
 
    async function registerUser() {
     try {
+      setLoading(true); // Start loading
       //for Auth Service
     const {user_email , user_password} = userProfile;
     const { user } = await createUserWithEmailAndPassword(auth, user_email, user_password);
     //for RealTime Database
      const reference = ref(rtdb,`users/${user.uid}`)
-     await set(reference,userProfile)
+      await set(reference, {
+      user_name:userProfile.user_name,
+      user_email:userProfile.user_email,
+      user_phone:userProfile.user_phone,
+      created_at: new Date().toISOString(), // Add registration date
+    });
       setUserProfile(initialForm)
       createUser(user.uid)
+      setInValidUser(false); // Reset invalid login state on successful registration
     } catch (error) {
       console.log(error);
+      setLoading(false); // Stop loading
     }
   }
 
 
   async function loginUser() {
     try {
+      setLoading(true); // Start loading
       const { user_email , user_password } = userProfile;
       const { user } = await signInWithEmailAndPassword(
         auth,
@@ -92,8 +103,11 @@ const Login = () => {
       await update(reference,{active:true})
       setUserProfile(initialForm)
       setUser(user);
+      setInValidUser(false); // Reset invalid login state on successful login
     } catch (error) {
       console.log(error);
+      setInValidUser(true) // Set invalid login state on error
+      setLoading(false); // Stop loading
     } 
   };
 
@@ -112,7 +126,7 @@ const Login = () => {
 
   return (
     <Box minH="65vh" maxW="600px" mx="auto" py={110} px={4}>
-      {onLoad ? (<CustomSpinner />) : (
+      {onLoad || loading ?  (<CustomSpinner />) : (
       <>
         <Heading as="h1" size="xl" mb={6} textAlign={"center"}>
           {signUp ? 'Sign Up' : 'Login' }
@@ -157,6 +171,9 @@ const Login = () => {
           placeholder="Enter your password"
         />
       </FormControl>
+             {inValidUser && (
+            <Text color="red.500" mb={4}>Password or email is incorrect.</Text>
+          )}
       <Button 
         onClick={ signUp ? registerUser : loginUser }
         colorScheme="teal" 
