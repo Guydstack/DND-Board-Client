@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { onAuthStateChanged, signOut, GoogleAuthProvider, signInWithRedirect } from "firebase/auth"
+import { onAuthStateChanged, signOut, GoogleAuthProvider, signInWithRedirect, signInWithPopup } from "firebase/auth"
 import { auth, rtdb } from "../../firebase_config"
 import { ref , update} from 'firebase/database';
 import CustomSpinner from "../components/common/CustomSpinner";
@@ -48,10 +48,21 @@ function AuthProvider({ children }) {
     }).then(() => console.log('success'))
    }
 
-  const googleSignIn = () => {
-    const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth,provider)
-}
+//   const googleSignIn = () => {
+//     const provider = new GoogleAuthProvider();
+//     signInWithRedirect(auth,provider)
+// }
+
+  const googleSignIn = async () => {
+  const provider = new GoogleAuthProvider();
+  try {
+    await signInWithPopup(auth, provider);
+    // Handle successful sign-in
+  } catch (error) {
+    // Handle errors
+    console.error(error);
+  }
+};
 
 
 useEffect(() => {
